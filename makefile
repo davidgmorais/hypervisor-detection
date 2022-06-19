@@ -2,7 +2,7 @@ CC=gcc
 DEP=detectHypervisor.c
 FLAGS=-I
 
-all: collect lu suggest
+all: collect detect suggest
 
 collect: collect.c
 	$(CC) -o collect collect.c $(DEP) $(FLAGS) .
@@ -14,4 +14,4 @@ detect: detect.c
 	$(CC) -o detect detect.c $(DEP) $(FLAGS) .
 
 clean:
-	-rm *.o detect 
+	-rm *.o detect suggest collect

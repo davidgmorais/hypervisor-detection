@@ -80,5 +80,19 @@ int main(int argc, char **argv)
 
     printf("%d - %s\n", isHypervisor, isHypervisor ? "Hypervisor detected" : "Native host detected");
 
-    // fingerprint strats
+    // fingerprint
+    if (isHypervisor && strcasecmp(mode, "ASM") == 0) {
+
+        if (ratio < 10000) {
+            printf("Possible hypervisor: VMWare\n");
+        } else if (ratio < 175000) {
+            printf("Possible hypervisor: QEMU\n");
+        } else {
+            printf("Possible Hypervisore: VirtualBox");
+        }
+    } 
+    
+    return 0;
+
+
 }
